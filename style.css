@@ -57,11 +57,16 @@ img {
   align-items: center;
   position: absolute;
   backface-visibility: hidden;
+  transform-style: preserve-3d;
 }
 
-.back-face{
-  transform: rotateY(180deg);
+.front-face{
+  transform: rotateX(180deg);
+  transform-style: preserve-3d;
 }
 
+.hidden {
+  display: none;
+}
 
 
