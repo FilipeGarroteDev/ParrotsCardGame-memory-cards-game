@@ -10,11 +10,24 @@
   </head>
   <body>
     <header>
+
+      <div class="jogadas-over" onclick="raise(this)">
+        <div class="jogadas">
+        </div>
+        <ion-icon name="game-controller-outline"></ion-icon>
+      </div>
       <h1>PARROT CARD GAME</h1>
+      <div class="timer-over" onclick="raise(this)">
+        <ion-icon name="stopwatch-outline"></ion-icon>
+        <div class="timer">
+        </div>
+      </div>
     </header>
     <div class="container">
 
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

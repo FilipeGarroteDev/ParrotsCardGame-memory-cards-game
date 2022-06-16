@@ -43,7 +43,27 @@ function initial() {
 function turnIt(element){
   const front = element.querySelector(".front");
   const back = element.querySelector(".back");
-  front.classList.add("turnFront")
-  back.classList.add("turnBack")
-  console.log("clicou")
+  const turnedCards = document.querySelectorAll(".turn")
+  
+  if (turnedCards.length == 0){
+  front.classList.remove("front")
+  back.classList.add("turn")
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+function raise(element){
+  const hiddenMenu = element.querySelector("div")
+  hiddenMenu.classList.toggle("raise")
+  hiddenMenu.classList.toggle("jogadas")
+
 }
