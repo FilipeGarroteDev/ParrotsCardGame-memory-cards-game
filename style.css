@@ -50,23 +50,27 @@ img {
   height: 100%;
   background-color: #a7e9af;
   border: 1px solid #99cea8;
-  margin: 18px 18px;
   border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   backface-visibility: hidden;
+  transition: all 3s;
   transform-style: preserve-3d;
 }
 
-.front-face{
-  transform: rotateX(180deg);
-  transform-style: preserve-3d;
+.front{
+  transform: rotateY(180deg);
 }
 
-.hidden {
-  display: none;
+.turnFront{
+  transform: rotateY(0deg);
 }
+
+.turnBack{
+  transform: rotateY(-180deg);
+}
+
 
 
