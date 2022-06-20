@@ -16,7 +16,6 @@ function initial() {
   const greets = Number(prompt(
     "Bem-vindo(a), my precious. Para começar o jogo, escolha a quantidade de cartas que deseja. (de 4 a 14)\nLembre-se: Quanto mais cartas, mais difícil. hehe"
   ));
-  console.log(greets)
 
   if (greets%2 === 0 && greets >= 4 && greets <= 14){
     for (let i = 0; i < greets/2; i++){
@@ -73,9 +72,16 @@ function turnIt(element){
       }
     }
   } 
+  setTimeout(fimDeJogo, 500)
 }
 
-
+function fimDeJogo(){
+  let cards = document.querySelectorAll(".card")
+  let matchedCards = document.querySelectorAll(".match")
+  if (cards.length === matchedCards.length){
+    alert("Parabéns, mermão!!")
+  }
+}
 
 
 function raise(element){
