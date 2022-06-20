@@ -16,26 +16,28 @@ function initial() {
   const greets = Number(prompt(
     "Bem-vindo(a), my precious. Para começar o jogo, escolha a quantidade de cartas que deseja. (de 4 a 14)\nLembre-se: Quanto mais cartas, mais difícil. hehe"
   ));
+  console.log(greets)
 
   if (greets%2 === 0 && greets >= 4 && greets <= 14){
     for (let i = 0; i < greets/2; i++){
       cardsArray.push(baseArray[i], baseArray[i]);
     } 
-  } else {
-    initial()
-  }
-  cardsArray.sort(comparador);
-  for(let i = 0; i < cardsArray.length; i++){
+    cardsArray.sort(comparador);
+    for(let i = 0; i < cardsArray.length; i++){
 
-    container.innerHTML +=
-      `<div class="card" data-identifier="card" onclick="turnIt(this)">
-        <div class="back face" data-identifier="back-face">
-          <img src="./images/front.png" />
-        </div>
-        <div class="front face" data-identifier="front-face">
-          <img src="./images/${cardsArray[i]}" class="${cardsArray[i].replace('parrot.gif', '')}"/>
-        </div>
-      </div>`
+      container.innerHTML +=
+        `<div class="card" data-identifier="card" onclick="turnIt(this)">
+          <div class="back face" data-identifier="back-face">
+            <img src="./images/front.png" />
+          </div>
+          <div class="front face" data-identifier="front-face">
+            <img src="./images/${cardsArray[i]}" class="${cardsArray[i].replace('parrot.gif', '')}"/>
+          </div>
+        </div>`
+    }
+  } else {
+    alert("Atente-se à regra!! Você digitou um valor inválido, favor insira um número PAR entre 4 e 14 para iniciar o jogo.")
+    initial()
   }
 }
 
