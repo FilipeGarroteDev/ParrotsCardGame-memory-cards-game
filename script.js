@@ -1,24 +1,18 @@
-
 let baseArray = ["bobrossparrot.gif", "explodyparrot.gif","fiestaparrot.gif", "metalparrot.gif", 
 "revertitparrot.gif", "tripletsparrot.gif", "unicornparrot.gif"]
 
-let container = document.querySelector(".container")
-
 let cardsArray = [];
-
-
 
 function comparador() {
   return Math.random() - 0.5;
 }
 
-
-
-
+// FIM DA BASE
 
 initial();
 
 function initial() {
+  let container = document.querySelector(".container")
   const greets = Number(prompt(
     "Bem-vindo(a), my precious. Para começar o jogo, escolha a quantidade de cartas que deseja. (de 4 a 14)\nLembre-se: Quanto mais cartas, mais difícil. hehe"
   ));
@@ -51,8 +45,6 @@ function turnIt(element){
   const thisImg = front.querySelector("img");
   const turnedCards = document.querySelectorAll(".turned")
 
-
-
   if (turnedCards.length < 2){   
     front.classList.remove("front")
     back.classList.add("turn")
@@ -63,46 +55,23 @@ function turnIt(element){
         element.classList.remove("turned")
         turnedCards[i].classList.add("match")
         turnedCards[i].classList.remove("turned")
-
       } else {
-        setTimeout(notMatch, 1000);
+        setTimeout(function (){
+          let cont = 0;
+          while (cont < turnedCards.length){
+            turnedCards[cont].querySelector("div:nth-child(2)").classList.add("front")
+            turnedCards[cont].querySelector(".back").classList.remove("turn")
+            turnedCards[cont].classList.remove("turned")
+            front.classList.add("front")
+            back.classList.remove("turn")
+            element.classList.remove("turned")
+            cont++
+          }
+        }, 1000);
       }
-  
     }
-
-
-
-
-  }
-
-  function notMatch(){
-    let cont = 0;
-    while (cont < turnedCards.length){
-      turnedCards[cont].querySelector("div:nth-child(2)").classList.add("front")
-      turnedCards[cont].querySelector(".back").classList.remove("turn")
-      turnedCards[cont].classList.remove("turned")
-      front.classList.add("front")
-      back.classList.remove("turn")
-      element.classList.remove("turned")
-      cont++
-    }
-  }
-  
-
-
-
-  
-  /*for (let i = 0; i < turnedCards.length; i++){
-    if (turnedCards[i].classList.value !== img.classList.value){
-      setTimeout(noMatch(), 3000)
-    }
-
-  }*/
-
+  } 
 }
-
-
-
 
 
 
