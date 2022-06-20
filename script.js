@@ -96,9 +96,8 @@ function fimDeJogo(){
 }
 
 
-function raise(element){
+function toggle(element){
   const hiddenMenu = element.querySelector("div")
-  hiddenMenu.classList.toggle("raise")
-  hiddenMenu.classList.toggle("jogadas")
+  hiddenMenu.classList.toggle("hiddenButton")
 
 }

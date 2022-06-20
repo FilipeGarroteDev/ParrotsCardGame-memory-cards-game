@@ -20,8 +20,8 @@ header h1{
   font-weight: 700;
   font-size: 56px;
   font-family: 'Roboto', sans-serif; 
-  text-align: center;
   color: #75B79E;
+  text-align: center;
 }
 
 ion-icon {
@@ -39,51 +39,39 @@ ion-icon {
   justify-content: flex-end;
 }
 
-.raise{
+.timer, .jogadas {
   width: 80px;
   height: 60px;
   background-color: black;
   opacity: 0.5;
   color: white;
-  font-size: 22px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 1.5s;
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.timer, .jogadas {
-  width: 10px;
-  height: 60px;
-  background-color: black;
-  opacity: 0.5;
-  color: white;
-  font-size: 22px;
+  font-size: 30px;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: width 1.5s;
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
+  overflow: hidden;
+}
+
+
+.hiddenButton{
+  width: 10px;
+  transition: all 1.5s;
+  color: black
 }
 
 .timer {
-  border-bottom-left-radius: 10px;
-  border-top-left-radius: 10px;
+  border-radius: 9px 0 0 9px;
 }
 
 .jogadas {
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
+  border-radius: 0 9px 9px 0;
 }
 
 .container {
   width: 100%;
-  height: 100%;
+  height: 350px;
   padding: 0 100px;
   display: flex;
   flex-wrap: wrap;
@@ -101,11 +89,16 @@ img {
   margin: 18px 18px;
   position: relative;
   perspective: 1000px;
+
+}
+
+.card:hover{
+  transform: scale(1.03);
 }
 
 .face{
-  width: 100%;
-  height: 100%;
+  width: 117px;
+  height: 146px;
   background-color: #a7e9af;
   border: 1px solid #99cea8;
   border-radius: 5px;
@@ -116,6 +109,12 @@ img {
   backface-visibility: hidden;
   transition: all 0.5s;
   transform-style: preserve-3d;
+  box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+.face:hover{
+  cursor: pointer;
+
 }
 
 .front{
@@ -127,4 +126,53 @@ img {
 }
 
 
+@media (max-width: 415px){
 
+header {
+  padding: 0 40px;
+  justify-content: center;
+}
+
+header h1{
+  font-size: 36px;
+  text-align: center;
+}
+
+ion-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.jogadas-over{
+  position: fixed;
+  top: 120px;
+  left: 0;
+}
+
+.timer-over{
+  position: fixed;
+  top: 120px;
+  right: 0;
+}
+
+.container {
+  width: 150px;
+  height: 100%;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0 0;
+}
+
+.timer, .jogadas {
+  width: 60px;
+  height: 40px;
+  font-size: 25px;
+}
+
+.hiddenButton{
+  width: 10px;
+  transition: all 1.5s;
+  color: black
+}
+
+}
