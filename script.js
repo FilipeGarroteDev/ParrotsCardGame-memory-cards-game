@@ -1,8 +1,18 @@
+
 let baseArray = ["bobrossparrot.gif", "explodyparrot.gif","fiestaparrot.gif", "metalparrot.gif", 
 "revertitparrot.gif", "tripletsparrot.gif", "unicornparrot.gif"]
 
 let cardsArray = [];
 let contadorDeJogadas = 0;
+let myInterval;
+const cronos = document.querySelector(".timer")
+cronos.innerHTML = 00
+
+function dispara(){
+  myInterval = setInterval(function(){
+    cronos.innerHTML ++
+  }, 1000)
+}
 
 function comparador() {
   return Math.random() - 0.5;
@@ -10,12 +20,16 @@ function comparador() {
 
 initial();
 
+
 function initial() {
+
   cardsArray = [];
   let container = document.querySelector(".container");
   let greets = Number(prompt(
     "Bem-vindo(a), my precious. Para começar o jogo, escolha a quantidade de cartas que deseja. (de 4 a 14)\nLembre-se: Quanto mais cartas, mais difícil. hehe"
   ));
+  cronos.innerHTML = 00
+  dispara();
   contadorDeJogadas = 0
   if (greets%2 === 0 && greets >= 4 && greets <= 14){
     for (let i = 0; i < greets/2; i++){
@@ -80,8 +94,11 @@ function fimDeJogo(){
   let cards = document.querySelectorAll(".card")
   let matchedCards = document.querySelectorAll(".match")
   if (cards.length === matchedCards.length){
+    let saveTimer = cronos.innerHTML
+    clearInterval(myInterval)
     alert(`OLOCO!! Parabéns, memorizador(a).
     Você ganhou em ${contadorDeJogadas} jogadas!
+    Tempo: ${saveTimer}
     SHOW DE BOLINHAS!!!`)
     const restart = prompt("THE PARROTS NEVER ENDS\nGostaria de jogar novamente? (sim ou não)");
     if (restart === "sim"){
@@ -101,3 +118,5 @@ function toggle(element){
   hiddenMenu.classList.toggle("hiddenButton")
 
 }
+
+
