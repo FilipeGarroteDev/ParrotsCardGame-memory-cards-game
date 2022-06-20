@@ -7,6 +7,7 @@ let contadorDeJogadas = 0;
 let myInterval;
 const cronos = document.querySelector(".timer")
 cronos.innerHTML = 00
+const jogadas = document.querySelector(".jogadas")
 
 function dispara(){
   myInterval = setInterval(function(){
@@ -29,9 +30,10 @@ function initial() {
     "Bem-vindo(a), my precious. Para começar o jogo, escolha a quantidade de cartas que deseja. (de 4 a 14)\nLembre-se: Quanto mais cartas, mais difícil. hehe"
   ));
   cronos.innerHTML = 00
-  dispara();
   contadorDeJogadas = 0
+  jogadas.innerHTML = 0
   if (greets%2 === 0 && greets >= 4 && greets <= 14){
+    dispara();
     for (let i = 0; i < greets/2; i++){
       cardsArray.push(baseArray[i], baseArray[i]);
     } 
@@ -55,6 +57,7 @@ function initial() {
 }
 
 function turnIt(element){
+
   const front = element.querySelector(".front");
   const back = element.querySelector(".back");
   const thisImg = front.querySelector("img");
@@ -65,6 +68,7 @@ function turnIt(element){
     back.classList.add("turn")
     element.classList.add("turned")
     contadorDeJogadas += 1
+    jogadas.innerHTML = contadorDeJogadas
     for (let i = 0; i < turnedCards.length; i++){
       if (thisImg.classList.value === turnedCards[i].querySelector("div:nth-child(2) > img").classList.value){
         element.classList.add("match")
@@ -98,7 +102,7 @@ function fimDeJogo(){
     clearInterval(myInterval)
     alert(`OLOCO!! Parabéns, memorizador(a).
     Você ganhou em ${contadorDeJogadas} jogadas!
-    Tempo: ${saveTimer}
+    Tempo total: ${saveTimer} segundos.
     SHOW DE BOLINHAS!!!`)
     const restart = prompt("THE PARROTS NEVER ENDS\nGostaria de jogar novamente? (sim ou não)");
     if (restart === "sim"){
