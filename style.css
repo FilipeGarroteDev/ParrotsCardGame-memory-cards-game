@@ -27,12 +27,14 @@ header h1{
 ion-icon {
   width: 40px;
   height: 40px;
+  cursor: pointer;
 }
 .timer-over, .jogadas-over{
   width: 120px;
   height: 60px;
   display:flex;
   align-items: center;
+
 }
 
 .timer-over {
@@ -52,6 +54,7 @@ ion-icon {
   justify-content: center;
   transition: width 1.5s;
   overflow: hidden;
+  cursor: pointer;
 }
 
 
@@ -141,7 +144,9 @@ header h1{
 ion-icon {
   width: 30px;
   height: 30px;
+
 }
+
 
 .jogadas-over{
   position: fixed;
@@ -154,6 +159,8 @@ ion-icon {
   top: 120px;
   right: 0;
 }
+
+
 
 .container {
   width: 150px;
