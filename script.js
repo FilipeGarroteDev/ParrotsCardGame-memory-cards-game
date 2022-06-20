@@ -2,12 +2,11 @@ let baseArray = ["bobrossparrot.gif", "explodyparrot.gif","fiestaparrot.gif", "m
 "revertitparrot.gif", "tripletsparrot.gif", "unicornparrot.gif"]
 
 let cardsArray = [];
+let contadorDeJogadas = 0
 
 function comparador() {
   return Math.random() - 0.5;
 }
-
-// FIM DA BASE
 
 initial();
 
@@ -50,6 +49,7 @@ function turnIt(element){
     front.classList.remove("front")
     back.classList.add("turn")
     element.classList.add("turned")
+    contadorDeJogadas += 1
     for (let i = 0; i < turnedCards.length; i++){
       if (thisImg.classList.value === turnedCards[i].querySelector("div:nth-child(2) > img").classList.value){
         element.classList.add("match")
@@ -79,7 +79,9 @@ function fimDeJogo(){
   let cards = document.querySelectorAll(".card")
   let matchedCards = document.querySelectorAll(".match")
   if (cards.length === matchedCards.length){
-    alert("Parabéns, mermão!!")
+    alert(`OLOCO!! Parabéns, memorizador(a).
+    Você ganhou em ${contadorDeJogadas} jogadas!
+    SHOW DE BOLINHAS!!!`)
   }
 }
 
